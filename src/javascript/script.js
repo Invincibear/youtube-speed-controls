@@ -89,6 +89,7 @@
     window.onkeyup = function (e) {
         var code = e.keyCode,
             ctrlKey = e.ctrlKey,
+            shiftKey = e.shiftKey,
             video = document.getElementsByTagName("video")[0],
             mediaElement = document.getElementById("movie_player"),
             mediaElementChildren = mediaElement.getElementsByTagName("*"),
@@ -110,9 +111,15 @@
                 video.playbackRate = 1;
             }
 
-            // If ctrl is being pressed turn to x3 speed
+            // If ctrl is being pressed turn to 3x speed
             if (ctrlKey) {
                 video.playbackRate = 3;
+                speedup = true;
+            }
+
+            // If ctrl is being pressed turn to 2.5x speed
+            if (shiftKey) {
+                video.playbackRate = 2.5;
                 speedup = true;
             }
 
